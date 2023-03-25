@@ -21,12 +21,14 @@ declare global {
   interface Window {
     _clinic: {
       authStore: typeof AuthStore;
+      userStore: typeof UserStore;
     };
   }
 }
 
 window._clinic = {
   authStore: AuthStore,
+  userStore: UserStore,
 };
 
 function App() {
@@ -38,7 +40,7 @@ function App() {
     () =>
       autorun(() => {
         if (!!UserStore.userId) {
-          return PostStore.subscribeToPost();
+          return UserStore.subscribeToUser();
         }
       }),
     []

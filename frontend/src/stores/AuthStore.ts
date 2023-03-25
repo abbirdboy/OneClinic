@@ -28,7 +28,12 @@ class AuthStore {
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/firebase.User
           const uid = user.uid;
-          UserStore.user = user;
+          UserStore.createOrUpdateUser({
+            id: uid,
+            name: user.displayName,
+            email: user.email,
+            avatar: user.photoURL,
+          });
           UserStore.userId = uid;
           this.loggedIn = true;
           // ...
