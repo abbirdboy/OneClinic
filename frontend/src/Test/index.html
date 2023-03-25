@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ambient mode with Tailwind CSS</title>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/@mux/mux-player"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body>
+    <div>
+      <canvas
+        width="100vh"
+        height="100vh"
+        class="w-full absolute"
+        style="height: 100vh"
+      ></canvas>
+      <mux-player
+        id="video"
+        class="w-full aspect-video p-5"
+        stream-type="on-demand"
+        playback-id="DS00Spx1CV902MCtPj5WknGlR102V5HFkDe"
+      ></mux-player>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>

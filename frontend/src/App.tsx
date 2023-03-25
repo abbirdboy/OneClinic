@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { observer } from "mobx-react";
 import logo from "./logo.svg";
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import { autorun } from "mobx";
+
+import PostEditor from "./components/PostEditor";
+import PostStore from "./stores/PostStore";
+import ServiceBell from "@servicebell/widget";
+import TemplateSuggestions from "./components/TemplateSuggestions";
+import { Stack } from "@mui/material";
+import Login from "./components/Login";
+import AuthStore from "./stores/AuthStore";
 import UserStore from "./stores/UserStore";
 import Home from "./Home";
-import Login from "./components/Login";
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
-import AuthStore from "./stores/AuthStore";
 
 declare global {
   interface Window {
@@ -23,28 +29,33 @@ window._clinic = {
   authStore: AuthStore,
 };
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyB_nG0_SYu6sqIiy_DxtTAVPEcr_OGTxeo",
-  authDomain: "oneclinic-a26e3.firebaseapp.com",
-  projectId: "oneclinic-a26e3",
-  storageBucket: "oneclinic-a26e3.appspot.com",
-  messagingSenderId: "999716280391",
-  appId: "1:999716280391:web:c8a3dbef13f6b1308d7962",
-  measurementId: "G-FKM5VYNHZ5",
-};
-
-// Initialize Firebase
-console.log("initializing firebase");
-const app = initializeApp(firebaseConfig);
-export const analytics = getAnalytics(app);
-
-export const db = getFirestore(app);
-
-export const auth = getAuth(app);
-
 function App() {
+  // if (ReactDeviceDetect.isMobile)
+
+  useEffect(() => AuthStore.authSubscription(), []);
+
+  useEffect(
+    () =>
+      autorun(() => {
+        if (!!UserStore.userId) {
+          return PostStore.subscribeToPost();
+        }
+      }),
+    []
+  );
+
+  useEffect(
+    () =>
+      autorun(() => {
+        if (!!UserStore.userId) {
+          ServiceBell("init", "19853fc193f4403d860d58fc948f3ddc", {
+            launcher: "pill",
+          });
+        }
+      }),
+    []
+  );
+
   return (
     <div className="App">
       <header className="App-header">
@@ -58,4 +69,4 @@ function App() {
   );
 }
 
-export default App;
+export default observer(App);

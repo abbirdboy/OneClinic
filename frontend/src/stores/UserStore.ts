@@ -1,12 +1,12 @@
-import { makeObservable, observable } from "mobx";
+import { makeObservable, observable } from 'mobx';
 
 class UserStore {
-  @observable userId: string = "";
-  @observable user: any | null = null;
+    @observable userId: string = '';
+    @observable user: any | null = null; 
 
-  constructor() {
-    makeObservable(this);
-  }
+    constructor() {
+        makeObservable(this);
+    }
 }
 
 export default new UserStore();

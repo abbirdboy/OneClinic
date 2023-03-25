@@ -1,5 +1,5 @@
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
-import { makeObservable, observable } from "mobx";
+import { makeObservable, observable, runInAction } from "mobx";
 import UserStore from "./UserStore";
 
 const auth = getAuth();
@@ -23,22 +23,23 @@ class AuthStore {
 
   authSubscription = () => {
     onAuthStateChanged(auth, (user) => {
-      console.log("[AuthStore] onAuthStateChanged: ", user);
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        const uid = user.uid;
-        UserStore.user = user;
-        UserStore.userId = uid;
-        this.loggedIn = true;
-        // ...
-      } else {
-        this.loggedIn = false;
-        UserStore.user = null;
-        UserStore.userId = "";
-        // User is signed out
-        // ...
-      }
+      runInAction(() => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          const uid = user.uid;
+          UserStore.user = user;
+          UserStore.userId = uid;
+          this.loggedIn = true;
+          // ...
+        } else {
+          this.loggedIn = false;
+          UserStore.user = null;
+          UserStore.userId = "";
+          // User is signed out
+          // ...
+        }
+      });
     });
   };
 }
