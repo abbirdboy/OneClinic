@@ -16,12 +16,14 @@ import Login from "./components/Login";
 import AuthStore from "./stores/AuthStore";
 import UserStore from "./stores/UserStore";
 import Home from "./Home";
+import RecordStore from "./stores/RecordStore";
 
 declare global {
   interface Window {
     _clinic: {
       authStore: typeof AuthStore;
       userStore: typeof UserStore;
+      recordStore: typeof RecordStore;
     };
   }
 }
@@ -29,6 +31,7 @@ declare global {
 window._clinic = {
   authStore: AuthStore,
   userStore: UserStore,
+  recordStore: RecordStore,
 };
 
 function App() {
