@@ -46,6 +46,7 @@ const Home = () => {
         style={{
           height: "100vh",
           // display: "flex",
+          overflow: "scroll",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
@@ -98,6 +99,7 @@ const SurveyCard = ({ surveyResult }: SurveyCardProps) => {
       style={{
         backgroundColor: "#e6f3ff",
         maxWidth: "230px",
+        marginBottom: "1vh",
       }}
     >
       <CardContent>

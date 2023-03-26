@@ -150,8 +150,13 @@ class RecordStore {
     console.log("tried sample: ", sample);
     if (sample[0] !== "[") sample = "[" + sample + "]";
     if (sample[sample.length - 1] !== "]") sample = sample + "]";
-    // this.surveyResults = JSON.parse(sample);
-    this.surveyResults = realSurveyResults;
+    try {
+      const sampledResults = JSON.parse(sample);
+      if (sampledResults?.length > 0) this.surveyResults = sampledResults;
+      else this.surveyResults = realSurveyResults;
+    } catch (e) {
+      this.surveyResults = realSurveyResults;
+    }
     return sample;
   };
 
@@ -164,9 +169,19 @@ class RecordStore {
     if (sample[0] !== "[") sample = "[" + sample + "]";
     if (sample[sample.length - 1] !== "]") sample = sample + "]";
     console.log("tried recomendations: ", sample);
-    // this.resourceResults = JSON.parse(sample);
-    this.resourceResults = realResults;
+    try {
+      const sampledResults = JSON.parse(sample);
+      if (sampledResults?.length > 1) this.resourceResults = sampledResults;
+      else this.resourceResults = realResults;
+    } catch (e) {
+      this.resourceResults = realResults;
+    }
+
     return sample;
+  };
+
+  setDemoSurveyResults = () => {
+    this.surveyResults = realSurveyResults;
   };
 
   constructor() {
@@ -174,7 +189,7 @@ class RecordStore {
   }
 
   sendRecording = async (audioUrl: string) => {
-    const baseUrl = "https://e41d-32-140-48-206.ngrok.io/api/v1/whisper";
+    const baseUrl = "https://a00a-32-140-48-206.ngrok.io/api/v1/whisper";
 
     const data = {
       patientId: UserStore.userId,
@@ -197,7 +212,7 @@ class RecordStore {
   };
 
   sendSurvey = async (surveyResponseStr: string) => {
-    const baseUrl = "https://e41d-32-140-48-206.ngrok.io/api/v1/recommend";
+    const baseUrl = "https://a00a-32-140-48-206.ngrok.io/api/v1/recommend";
 
     const data = {
       patientId: UserStore.userId,

@@ -55,10 +55,10 @@ const Login = () => {
     >
       <AboutOneClinicPanel />
       <Stack alignItems="center" justifyContent="center" direction="column">
-        <Typography
+        {/* <Typography
           style={{ color: "black" }}
         >{`${AuthStore.loggedIn}`}</Typography>
-        <Typography>{JSON.stringify(UserStore.user)}</Typography>
+        <Typography>{JSON.stringify(UserStore.user)}</Typography> */}
         <Button onClick={handleLogin}>Login</Button>
       </Stack>
     </div>
