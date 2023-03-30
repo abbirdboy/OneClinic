@@ -1,0 +1,52 @@
+{
+"1. Income and social status": {
+"Question": "What is the patient's income and social status?",
+"Answer": "There is no information provided about the patient's income, but the patient is a high school graduate and works as an electrician."
+},
+"2. Education level and literacy": {
+"Question": "What is the patient's education level and literacy?",
+"Answer": "The patient is a high school graduate."
+},
+"3. Employment and working conditions": {
+"Question": "What is the patient's employment status and working conditions?",
+"Answer": "The patient works as an electrician and his job requires daily physical exertion such as climbing ladders and lifting heavy objects. The patient's symptoms are impacting his ability to work."
+},
+"4. Housing and neighborhood conditions": {
+"Question": "What is the patient's housing and neighborhood conditions?",
+"Answer": "There is no specific information provided about the patient's housing and neighborhood conditions, but the patient reports feeling safe and well-cared for in his home."
+},
+"5. Access to clean water and air": {
+"Question": "Does the patient have access to clean water and air?",
+"Answer": "There is no information provided about the patient's access to clean water and air."
+},
+"6. Access to healthy food options": {
+"Question": "Does the patient have access to healthy food options?",
+"Answer": "The patient reports a well-rounded non-vegetarian diet of mostly home-cooked meals of meat and vegetables."
+},
+"7. Physical environment": {
+"Question": "What is the patient's physical environment like, including pollution levels and green spaces?",
+"Answer": "There is no specific information provided about the patient's physical environment, pollution levels, or green spaces."
+},
+"8. Social support networks and community resources": {
+"Question": "What are the patient's social support networks and community resources?",
+"Answer": "The patient lives with his wife of 25 years and feels safe and well-cared for in his home, which is a positive aspect of his social support system. There is no information provided about the patient's access to community resources."
+},
+"9. Discrimination and social exclusion": {
+"Question": "Has the patient experienced discrimination or social exclusion based on race, gender, ethnicity, or other factors?",
+"Answer": "There is no information provided about the patient experiencing discrimination or social exclusion."
+},
+"10. Access to healthcare services": {
+"Question": "Does the patient have access to healthcare services and quality of care?",
+"Answer": "There is no specific information provided about the patient's access to healthcare services or the quality of care."
+},
+"11. Lifestyle choices": {
+"Question": "What are the patient's lifestyle choices, such as smoking, alcohol consumption, and physical activity levels?",
+"Answer": "The patient denies any history of smoking and has ceased alcohol intake since the onset of symptoms 4 months ago. The patient does not engage in any exercise but feels physically exerted every day at his job."
+},
+"12. Early childhood development and education": {
+"Question": "What is the patient's early childhood development and education history?",
+"Answer": "There is no specific information provided about the patient's early childhood development and education."
+},
+"13. Transportation options": {
+"Question": "What are the patient's transportation options and access to public transportation?",
+"Answer": "There is no information provided about the patient's transportation options or access to public transportation."
